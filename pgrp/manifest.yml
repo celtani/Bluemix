@@ -1,0 +1,8 @@
+applications:
+- services:
+  - qa
+  - mt
+  name: pergunta-resposta
+  command: node app.js
+  path: .
+  memory: 128M

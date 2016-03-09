@@ -1,0 +1,63 @@
+//- index.jade
+extends ./layout.jade
+
+block row-content
+  div.row
+    div.col-lg-12
+        h2 Solucione suas d&uacute;vidas
+        div.well
+          form#mtForm.form-horizontal(method='post')
+            fieldset
+              div.form-group.row
+                h4.col-lg-12(for='select') Selecione o assunto:
+                div.col-lg-12
+                  select#select.form-control(name='dataset', onchange="showExample(false);")
+                    option(value='healthcare' selected=dataset=='healthcare'||!dataset) Sa&uacute;de
+                    option(value='travel' selected=dataset=='travel') Viagens
+              div.form-group.row
+                div.col-lg-10(style="margin-top:10px;")
+                  input#questionText.form-control(name="questionText",
+                    placeholder="Digite sua pergunta...",
+                    required="true", value='#{questionText ? questionText : ""}')
+                  a.btn.btn-link(href="javascript:showExample(true)", style="padding-left:0px;") Exemplos de pergunta
+                div.col-lg-2(style="margin-top:10px;")
+                  button.btn.btn-block(type='submit') Perguntar
+  div.row
+    div.col-lg-12
+      if translations
+        h2 Pergunta traduzida para o ingl&ecirc;s:
+        div.well
+          div.form-group.row
+            div.col-lg-12
+              p #{translations}
+  div.row
+    div.col-lg-12
+      if answer
+        h2 Resposta em ingl&ecirc;s:
+          //- check if there are answers
+        div.well
+          div.form-group.row
+            div.col-lg-12
+              p #{answer.text}
+                  div.confidenceDiv
+                    strong Confidence:
+                    |  #{Math.round(answer.value*100) + '%'}
+  div.row
+    div.col-lg-12
+      if translations1
+        h2 Resposta traduzida para o portugu&ecirc;s:
+        div.well
+          div.form-group.row
+            div.col-lg-12
+              p #{translations1}
+                  div.confidenceDiv
+                    strong Confian&ccedil;a:
+                    |  #{Math.round(answer.value*100) + '%'}
+  div.row
+    div.col-lg-12
+      if error
+        h2 Sa&iacute;da
+        div.well
+          div.form-group.row
+            div.col-lg-12
+          p(style="font-weight:bold;color:red;") Error: #{error}

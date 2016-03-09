@@ -1,0 +1,19 @@
+{
+  "name": "(questionanswernodejsstarterapp)",
+  "version": "0.0.1",
+  "description": "A sample nodejs app for Bluemix that use the Question Answer service",
+  "dependencies": {
+    "express": "^3.4.7",
+    "jade": "1.1.4"
+  },
+  "engines": {
+    "node": "0.10.26"
+  },
+  "repository": {},
+  "main": "(index.js)",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
